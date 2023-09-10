@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
   get 'lists/new'
-  get 'lists/edit'
+  get 'lists/:id/edit' => 'lists#edit', as: 'edit_list'
   get 'lists' => 'lists#index'
   get 'lists/:id' => 'lists#show', as: 'list'
   post 'lists' => 'lists#create'
   get 'top' => 'homes#top'
+  patch 'lists/:id' => 'lists#update', as: 'update_list'
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
